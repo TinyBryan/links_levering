@@ -157,7 +157,7 @@ section {
 /* Container begrenzen en centreren */
 .button-container {
     width: 100%;
-    max-width: 1110px;   /* voorkomt full width */
+    max-width: 1120px;   /* voorkomt full width */
     margin: 0 auto;      /* echte centrering */
 }
 
