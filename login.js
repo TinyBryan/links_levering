@@ -49,14 +49,18 @@ loginButton.addEventListener("click", (e) => {
       const errorCode = error.code;
       const errorMessageText = error.message;
       console.error(errorCode, errorMessageText);
-
-      if (errorCode === 'auth/user-not-found') {
-        errorMessage.textContent = "Geen account gevonden voor dit e-mailadres.";
-      } else if (errorCode === 'auth/wrong-password') {
-        errorMessage.textContent = "Ongeldig wachtwoord.";
-      } else {
-        errorMessage.textContent = "Er is een fout opgetreden. Probeer het opnieuw.";
-      }
+      
+    if (errorCode === 'auth/invalid-credential') {
+      errorMessage.textContent = "E-mailadres of wachtwoord is onjuist.";
+    } else if (errorCode === 'auth/user-not-found') {
+      errorMessage.textContent = "Geen account gevonden voor dit e-mailadres.";
+    } else if (errorCode === 'auth/wrong-password') {
+      errorMessage.textContent = "Ongeldig wachtwoord.";
+    } else if (errorCode === 'auth/invalid-email') {
+      errorMessage.textContent = "Ongeldig e-mailadres.";
+    } else {
+      errorMessage.textContent = errorMessageText; // handig voor debuggen
+    }
 
       errorMessage.style.display = "block";
     });
